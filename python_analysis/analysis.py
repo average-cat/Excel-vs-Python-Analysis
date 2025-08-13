@@ -5,8 +5,13 @@ def main():
     import matplotlib.pyplot as plt
     import seaborn as sns
     import openpyxl
+    from pathlib import Path
+    import pandas as pd
 
-    df = pd.read_excel('USSuperstoredata.xlsx', engine="openpyxl")
+    BASE = Path(__file__).resolve().parent.parent
+    data_path = BASE / "data" / "USSuperstoredata.xlsx"
+    df = pd.read_excel(data_path, engine="openpyxl")
+    
     df.head()
 
     # MONTHLY SALES TREND
